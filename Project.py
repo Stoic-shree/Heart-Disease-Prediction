@@ -73,4 +73,4 @@ if st.button('Predict'):
         st.success('✅ The person does NOT have Heart Disease')
 
 st.markdown("---")  # adds a horizontal line
-st.markdown("Made with ❤️ by You")
+st.markdown("Made with ❤️ by Stoicy")
