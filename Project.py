@@ -56,6 +56,3 @@ if st.button('Predict'):
         st.error('⚠️ The person has Heart Disease')
     else:
         st.success('✅ The person does NOT have Heart Disease')
-
-# Footer
-st.markdown("<h5 style='text-align: center;'>Made with ❤️</h5>", unsafe_allow_html=True)
