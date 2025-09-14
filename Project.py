@@ -1,21 +1,34 @@
+import numpy as np
 import os
 import pickle
 import streamlit as st
-import numpy as np
 
 BASE_DIR = os.path.dirname(__file__)  # Path to Project.py
 
-with open(os.path.join(BASE_DIR, 'logistic_model.pkl'), 'rb') as file1:
-    logistic_model = pickle.load(file1)
+# Load models with error handling
+try:
+    with open(os.path.join(BASE_DIR, 'logistic_model.pkl'), 'rb') as file1:
+        logistic_model = pickle.load(file1)
+except FileNotFoundError:
+    st.error("logistic_model.pkl not found! Check if file is uploaded.")
 
-with open(os.path.join(BASE_DIR, 'knn_model.pkl'), 'rb') as file2:
-    knn_model = pickle.load(file2)
+try:
+    with open(os.path.join(BASE_DIR, 'knn_model.pkl'), 'rb') as file2:
+        knn_model = pickle.load(file2)
+except FileNotFoundError:
+    st.error("knn_model.pkl not found! Check if file is uploaded.")
 
-with open(os.path.join(BASE_DIR, 'scaler.pkl'), 'rb') as file3:
-    scaler = pickle.load(file3)
+try:
+    with open(os.path.join(BASE_DIR, 'scaler.pkl'), 'rb') as file3:
+        scaler = pickle.load(file3)
+except FileNotFoundError:
+    st.error("scaler.pkl not found! Check if file is uploaded.")
 
-with open(os.path.join(BASE_DIR, 'naive_bayes_model.pkl'), 'rb') as file4:
-    naive_bayes_model = pickle.load(file4)
+try:
+    with open(os.path.join(BASE_DIR, 'naive_bayes_model.pkl'), 'rb') as file4:
+        naive_bayes_model = pickle.load(file4)
+except FileNotFoundError:
+    st.error("naive_bayes_model.pkl not found! Check if file is uploaded.")
 
 # Streamlit UI
 st.title("Heart Disease Prediction")
