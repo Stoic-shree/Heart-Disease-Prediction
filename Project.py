@@ -1,19 +1,21 @@
+import os
+import pickle
 import streamlit as st
 import numpy as np
-import pickle
-# Load models and scaler
-with open('logistic_model.pkl', 'rb') as file1:
+
+BASE_DIR = os.path.dirname(__file__)  # Path to Project.py
+
+with open(os.path.join(BASE_DIR, 'logistic_model.pkl'), 'rb') as file1:
     logistic_model = pickle.load(file1)
 
-with open('knn_model.pkl', 'rb') as file2:
+with open(os.path.join(BASE_DIR, 'knn_model.pkl'), 'rb') as file2:
     knn_model = pickle.load(file2)
 
-with open('scaler.pkl', 'rb') as file3:
+with open(os.path.join(BASE_DIR, 'scaler.pkl'), 'rb') as file3:
     scaler = pickle.load(file3)
 
-with open('naive_bayes_model.pkl', 'rb') as file3:
-    naive_bayes_model = pickle.load(file3)
-
+with open(os.path.join(BASE_DIR, 'naive_bayes_model.pkl'), 'rb') as file4:
+    naive_bayes_model = pickle.load(file4)
 
 # Streamlit UI
 st.title("Heart Disease Prediction")
